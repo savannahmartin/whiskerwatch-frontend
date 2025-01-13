@@ -9,6 +9,7 @@ import EditPetPage from './pages/EditPetPage';
 import AddBehaviorPage from './pages/AddBehaviorPage';
 import BehaviorsPage from './pages/BehaviorsPage';
 import Footer from './components/Footer/Footer';
+import EditBehaviorPage from './pages/EditBehaviorPage';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
       <Route path='/pets/add' element={<AddPetPage />} />
       <Route path='/pets/:id/edit' element={<EditPetPage />} />
       <Route path='/pets/:id/behavior' element={<AddBehaviorPage />} />
+      <Route path='/behavior/:id/edit' element={<EditBehaviorPage />} />
     </Routes>
     <Footer />
     </>
