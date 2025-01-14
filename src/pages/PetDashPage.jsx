@@ -7,22 +7,25 @@ export default function PetDashPage() {
 
 	useEffect(() => {
 		axios
-			.get("http://localhost:5050/api/pets") // Adjust port if needed
+			.get("http://localhost:5050/pets")
 			.then((res) => setPets(res.data))
 			.catch((err) => console.error("Error fetching pets:", err));
 	}, []);
 
 	return (
 		<div>
-			<h2>Pet Dashboard</h2>
-			<Link to="/add-pet">
+			<h2>Pets</h2>
+			<Link to="/pets/add">
 				<button>Add Pet</button>
 			</Link>
 			<ul>
 				{pets.map((pet) => (
 					<li key={pet.id}>
 						{pet.name} - {pet.species}
-						<Link to={`/edit-pet/${pet.id}`}>
+						<Link to={`/pets/${pet.id}`}>
+							<button>View Details</button>
+						</Link>
+						<Link to={`/pets/${pet.id}/edit`}>
 							<button>Edit</button>
 						</Link>
 					</li>

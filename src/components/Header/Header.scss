@@ -1,0 +1,32 @@
+@use "../../styles/colors" as *;
+
+.header {
+    display: flex; // Ensures items are in one line
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none; // Remove underline on logo link
+    color: inherit; // Ensures it uses default text color
+}
+
+.logo {
+    height: 30px; // Adjust logo size as needed
+    width: auto;
+    margin-right: 10px;
+}
+
+.nav {
+    display: flex;
+    gap: 20px; // Space between links
+}
+
+.nav-link {
+    text-decoration: none; // Remove underline
+    color: inherit; // Use default text color
+    font-weight: bold;
+}
