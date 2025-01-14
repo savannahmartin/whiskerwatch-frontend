@@ -1,5 +1,5 @@
 export default function EditBehaviorPage() {
     return (
-        <h1>edit pet</h1>
+        <h1>edit behavior</h1>
     )
 }
