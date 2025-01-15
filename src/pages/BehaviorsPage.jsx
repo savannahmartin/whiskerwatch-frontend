@@ -18,7 +18,9 @@ export default function BehaviorsPage() {
 				{behaviors.length > 0 ? (
 					behaviors.map((behavior) => (
 						<li key={behavior.id}>
-							{behavior.description} ({behavior.date})
+							<strong>{behavior.pet_name}</strong>,{" "}
+							{behavior.description},{" "}
+							{new Date(behavior.date).toLocaleDateString()}
 						</li>
 					))
 				) : (

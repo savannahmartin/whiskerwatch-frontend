@@ -1,0 +1,32 @@
+@use "../../styles/colors" as *;
+
+.footer {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: $plum;
+}
+
+.logo {
+    height: 1.875rem;
+    width: auto;
+    margin-right: .625rem;
+}
+
+.nav {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.nav-link {
+    text-decoration: none; 
+    font-weight: bold;
+    color: $plum;
+}
