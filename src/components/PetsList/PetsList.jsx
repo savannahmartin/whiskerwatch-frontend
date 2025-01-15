@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import PetCard from "../PetCard/PetCard";
+import "./PetsList.scss"
 
 
 export default function PetsList({ pets }) {

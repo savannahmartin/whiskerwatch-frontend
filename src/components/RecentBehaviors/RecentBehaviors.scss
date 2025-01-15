@@ -1,0 +1,72 @@
+@use "../../styles/colors" as *;
+
+.recent-behaviors {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+
+    h2 {
+        font-size: 2rem;
+        color: $plum;
+        margin-bottom: 1rem;
+    }
+
+    &__table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        background-color: $warm-beige;
+        border-radius: 0.5rem;
+        overflow: hidden;
+
+        thead {
+            background-color: $orchid;
+
+            th {
+                padding: 1rem;
+                font-size: 1.25rem;
+            }
+        }
+
+        tbody {
+            tr {
+                &:nth-child(even) {
+                    background-color: $warm-cream; /* Subtle stripe for readability */
+                }
+            }
+
+            td {
+                padding: 1rem;
+                font-size: 1rem;
+                color: $charcoal;
+                word-wrap: break-word;
+                text-align: left;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    &__edit-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        transition: background-color 0.2s ease-in-out;
+
+        &:hover {
+            background-color: #f1d7eb; 
+        }
+
+        img {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        gap: 1rem;
+    }
+}

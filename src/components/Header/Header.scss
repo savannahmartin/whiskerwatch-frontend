@@ -13,13 +13,13 @@
     }
 
     &__logo {
-        height: 5rem;
+        height: 3rem;
         width: auto;
         margin-right: .625rem;
     }
 
     &__title {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         font-weight: bold;
     }
 
@@ -29,7 +29,13 @@
 
         &-link {
             text-decoration: none; 
-            color: $plum;
+            color: $orchid;
+            font-weight: bold;
+
+            &:hover {
+                background-color: $plum;
+            }
         }
+
     }
 }

@@ -14,17 +14,16 @@ export default function PetDetailsPage() {
 			.then((res) => setPet(res.data))
 			.catch((err) => console.error("Error fetching pet details:", err));
 
-		// Fetch behaviors for this pet
-		axios
-			.get(`http://localhost:5050/pets/${id}/behaviors`)
-			.then((res) => {
-				// Sort behaviors by most recent date and limit to 3
-				const sortedBehaviors = res.data.sort(
-					(a, b) => new Date(b.date) - new Date(a.date)
-				);
-				setBehaviors(sortedBehaviors.slice(0, 3));
-			})
-			.catch((err) => console.error("Error fetching behaviors:", err));
+// Fetch behaviors for this pet
+axios
+	.get(`http://localhost:5050/behaviors/pet/${id}`)
+	.then((res) => {
+		const sortedBehaviors = res.data.sort(
+			(a, b) => new Date(b.date) - new Date(a.date)
+		);
+		setBehaviors(sortedBehaviors.slice(0, 3));
+	})
+	.catch((err) => console.error("Error fetching behaviors:", err));
 	}, [id]);
 
 	if (!pet) return <p>Loading pet details...</p>;
