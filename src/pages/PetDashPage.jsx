@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
+import PetsListDetailed from "../components/PetsListDetailed/PetsListDetailed";
 
 export default function PetDashPage() {
 	const [pets, setPets] = useState([]);
@@ -14,23 +14,7 @@ export default function PetDashPage() {
 
 	return (
 		<div>
-			<h2>Pets</h2>
-			<Link to="/pets/add">
-				<button>Add Pet</button>
-			</Link>
-			<ul>
-				{pets.map((pet) => (
-					<li key={pet.id}>
-						{pet.name} - {pet.species}
-						<Link to={`/pets/${pet.id}`}>
-							<button>View Details</button>
-						</Link>
-						<Link to={`/pets/${pet.id}/edit`}>
-							<button>Edit</button>
-						</Link>
-					</li>
-				))}
-			</ul>
+			<PetsListDetailed pets={pets} />
 		</div>
 	);
 }

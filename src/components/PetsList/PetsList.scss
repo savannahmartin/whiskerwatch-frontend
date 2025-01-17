@@ -10,8 +10,8 @@
 
     h2 {
         font-size: 2rem;
-        color: $golden-orange;
-        margin-bottom: 0.5rem;
+        color: $orchid;
+        margin-bottom: 0;
         margin-left: 0.5rem;
     }
 
@@ -19,5 +19,6 @@
         display: flex;
         gap: 1.5rem;
         flex-wrap: wrap;
+        margin-bottom: 0.75rem;
     }
 }

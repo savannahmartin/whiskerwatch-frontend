@@ -1,0 +1,15 @@
+@use "../../styles/colors" as *;
+
+.pet-details {
+    margin: 2rem auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+
+    &__name {
+        font-size: 2.5rem;
+        color: $plum;
+        margin-bottom: 1rem;
+    }
+
+}

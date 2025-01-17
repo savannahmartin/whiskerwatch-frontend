@@ -8,8 +8,8 @@
 
     h2 {
         font-size: 2rem;
-        color: $plum;
-        margin-bottom: 1rem;
+        color: $orchid;
+        margin-bottom: 0;
     }
 
     &__table {
@@ -21,7 +21,7 @@
         overflow: hidden;
 
         thead {
-            background-color: $orchid;
+            background-color: rgba(217, 142, 4, 0.5);
 
             th {
                 padding: 1rem;
@@ -32,7 +32,7 @@
         tbody {
             tr {
                 &:nth-child(even) {
-                    background-color: $warm-cream; /* Subtle stripe for readability */
+                    background-color: rgba(217, 142, 4, 0.2);
                 }
             }
 

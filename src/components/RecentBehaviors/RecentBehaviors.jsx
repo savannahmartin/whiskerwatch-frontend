@@ -5,9 +5,9 @@ import editIcon from "../../assets/images/edit.svg";
 export default function RecentBehaviors({ behaviors }) {
 	const navigate = useNavigate();
 
-	// Navigate to the edit page for a specific behavior
+	// Navigate to the correct edit page
 	const handleEdit = (behaviorId) => {
-		navigate(`/behaviors/edit/${behaviorId}`); // Adjust path as needed
+		navigate(`/behavior/${behaviorId}/edit`); // Match PetDetailsPage path
 	};
 
 	return (
