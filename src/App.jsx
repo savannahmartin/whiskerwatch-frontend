@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import HomePage from './pages/HomePage';
+import HomePage from './pages/HomePage/HomePage';
 import Header from './components/Header/Header';
-import PetDashPage from './pages/PetDashPage';
+import PetDashPage from './pages/PetDashPage/PetDashPage';
 import PetDetailsPage from './pages/PetDetailsPage/PetDetailsPage';
-import AddPetPage from './pages/AddPetPage';
-import EditPetPage from './pages/EditPetPage';
-import AddBehaviorPage from './pages/AddBehaviorPage';
-import BehaviorsPage from './pages/BehaviorsPage';
+import AddPetPage from './pages/AddPetPage/AddPetPage';
+import EditPetPage from './pages/EditPetPage/EditPetPage';
+import AddBehaviorPage from './pages/AddBehaviorPage/AddBehaviorPage';
+import BehaviorsPage from './pages/BehaviorsPage/BehaviorsPage';
 import Footer from './components/Footer/Footer';
-import EditBehaviorPage from './pages/EditBehaviorPage';
-import PetBehaviorsPage from './pages/PetBehaviorsPage';
+import EditBehaviorPage from './pages/EditBehaviorsPage/EditBehaviorPage';
+import PetBehaviorsPage from './pages/PetBehaviorsPage/PetBehaviorsPage';
 
 
 function App() {

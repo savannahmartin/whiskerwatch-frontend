@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import PetsListDetailed from "../components/PetsListDetailed/PetsListDetailed";
+import PetsListDetailed from "../../components/PetsListDetailed/PetsListDetailed";
 
 export default function PetDashPage() {
 	const [pets, setPets] = useState([]);

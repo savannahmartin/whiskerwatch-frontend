@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import HeroSection from "../components/HeroSection/HeroSection";
-import PetsList from "../components/PetsList/PetsList";
-import RecentBehaviors from "../components/RecentBehaviors/RecentBehaviors";
+import HeroSection from "../../components/HeroSection/HeroSection";
+import PetsList from "../../components/PetsList/PetsList";
+import RecentBehaviors from "../../components/RecentBehaviors/RecentBehaviors";
 
 export default function HomePage() {
 	const [pets, setPets] = useState([]);

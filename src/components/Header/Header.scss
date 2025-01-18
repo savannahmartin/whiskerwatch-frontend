@@ -13,27 +13,26 @@
     }
 
     &__logo {
-        height: 3rem;
+        height: 3.5rem;
         width: auto;
         margin-right: .625rem;
     }
 
     &__title {
-        font-size: 1.3rem;
-        font-weight: bold;
+        font-size: 1.75rem;
     }
 
     &__nav {
         display: flex;
-        gap: 1.25rem;
+        gap: 1.4rem;
 
         &-link {
             text-decoration: none; 
             color: $orchid;
-            font-weight: bold;
+            font-size: larger;
 
             &:hover {
-                background-color: $plum;
+                transform: scale(1.3);
             }
         }
 
