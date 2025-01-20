@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import editIcon from "../../assets/images/edit.svg";
 import "./BehaviorRow.scss";
 
-export default function BehaviorRow({ behavior }) {
+export default function BehaviorRow({ behavior, hidePetColumn }) {
 	return (
 		<tr className="behavior-row">
-			<td>{behavior.pet_name}</td>
+			{!hidePetColumn && <td>{behavior.pet_name}</td>}
 			<td>{new Date(behavior.date).toLocaleDateString()}</td>
 			<td>{behavior.description}</td>
 			<td>
