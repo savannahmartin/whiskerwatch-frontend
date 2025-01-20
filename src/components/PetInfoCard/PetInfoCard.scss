@@ -1,0 +1,51 @@
+@use "../../styles/colors" as *;
+
+.pet-info-card {
+    background-color: $warm-beige;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 40vh;
+    text-align: left;
+
+    p {
+        font-size: 1rem;
+        color: $charcoal;
+        margin: 0.5rem 0;
+    }
+
+    &__notes {
+        margin-top: 1rem;
+        padding: 1rem;
+        border-left: 4px solid $periwinkle;
+        border-radius: 0.5rem;
+
+        p {
+            font-size: 1rem;
+            color: $charcoal;
+            margin: 0.5rem 0;
+        }
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 1rem;
+        color: $charcoal;
+    }
+
+    &__buttons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    &__archive {
+        background-color: #d9534f;
+        &:hover {
+            background-color: rgba(217, 83, 79, 0.8);
+        }
+    }
+}

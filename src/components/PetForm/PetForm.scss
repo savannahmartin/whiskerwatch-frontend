@@ -1,0 +1,30 @@
+@use "../../styles/colors" as *;
+
+.pet-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 400px;
+
+    label {
+        font-size: 1rem;
+        color: $charcoal;
+    }
+
+    input, select {
+        padding: 0.5rem;
+        border: 1px solid $charcoal;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+    }
+
+    textarea {
+        padding: 0.5rem;
+        border: 1px solid $charcoal;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        height: 6rem; // Makes it larger for additional info
+        resize: vertical;
+    }
+}

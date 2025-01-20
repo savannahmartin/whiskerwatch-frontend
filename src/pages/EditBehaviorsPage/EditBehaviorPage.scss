@@ -1,0 +1,20 @@
+@use "../../styles/colors" as *;
+
+.edit-behavior {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: $warm-beige;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    &__pet-name {
+        font-size: 1.25rem;
+        color: $charcoal;
+        margin-bottom: 0.5rem;
+    }
+}

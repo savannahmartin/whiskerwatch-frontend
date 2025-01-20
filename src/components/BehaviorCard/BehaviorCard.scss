@@ -1,0 +1,33 @@
+@use "../../styles/colors" as *;
+
+.behavior-card {
+    background-color: $warm-beige;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    width: 10rem;
+    height: auto;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    &__date {
+        font-size: 1.2rem;
+        color: $plum;
+    }
+
+    &__description {
+        font-size: 1rem;
+        color: $charcoal;
+    }
+
+    &__edit {
+        position: absolute;
+        bottom: 0.5rem;
+        right: 0.5rem;
+        background: none;
+
+        img {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    }
+}

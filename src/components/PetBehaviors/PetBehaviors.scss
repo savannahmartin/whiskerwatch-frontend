@@ -1,0 +1,17 @@
+@use "../../styles/colors" as *;
+
+.pet-behaviors {
+    
+    h3 {
+        color: $plum;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    &__list {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+    }
+}

@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import HomePage from './pages/HomePage';
+import HomePage from './pages/HomePage/HomePage';
 import Header from './components/Header/Header';
-import PetDashPage from './pages/PetDashPage';
-import PetDetailsPage from './pages/PetDetailsPage';
-import AddPetPage from './pages/AddPetPage';
-import EditPetPage from './pages/EditPetPage';
-import AddBehaviorPage from './pages/AddBehaviorPage';
-import BehaviorsPage from './pages/BehaviorsPage';
+import PetDashPage from './pages/PetDashPage/PetDashPage';
+import PetDetailsPage from './pages/PetDetailsPage/PetDetailsPage';
+import AddPetPage from './pages/AddPetPage/AddPetPage';
+import EditPetPage from './pages/EditPetPage/EditPetPage';
+import AddBehaviorPage from './pages/AddBehaviorPage/AddBehaviorPage';
+import BehaviorsPage from './pages/BehaviorsPage/BehaviorsPage';
 import Footer from './components/Footer/Footer';
+import EditBehaviorPage from './pages/EditBehaviorsPage/EditBehaviorPage';
+import PetBehaviorsPage from './pages/PetBehaviorsPage/PetBehaviorsPage';
 
 
 function App() {
@@ -25,7 +27,9 @@ function App() {
       <Route path='/behaviors' element={<BehaviorsPage />} />
       <Route path='/pets/add' element={<AddPetPage />} />
       <Route path='/pets/:id/edit' element={<EditPetPage />} />
-      <Route path='/pets/:id/behavior' element={<AddBehaviorPage />} />
+      <Route path="/behaviors/add" element={<AddBehaviorPage />} />
+      <Route path='/behavior/:id/edit' element={<EditBehaviorPage />} />
+      <Route path='/pets/:id/behaviors' element={<PetBehaviorsPage />} />
     </Routes>
     <Footer />
     </>

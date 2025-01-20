@@ -1,0 +1,21 @@
+@use "../../styles/colors" as *;
+
+.behavior-row {
+    td {
+        font-size: 1rem;
+        color: $charcoal;
+        padding: 1rem;
+    }
+
+    &__edit-icon {
+        width: 2rem;
+        height: 2rem;
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+
+        &:hover {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+    }
+}

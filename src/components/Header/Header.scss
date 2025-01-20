@@ -1,0 +1,40 @@
+@use "../../styles/colors" as *;
+
+.header {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+
+    &__logo-container {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: $plum;
+    }
+
+    &__logo {
+        height: 3.5rem;
+        width: auto;
+        margin-right: .625rem;
+    }
+
+    &__title {
+        font-size: 1.75rem;
+    }
+
+    &__nav {
+        display: flex;
+        gap: 1.4rem;
+
+        &-link {
+            text-decoration: none; 
+            color: $orchid;
+            font-size: larger;
+
+            &:hover {
+                transform: scale(1.3);
+            }
+        }
+
+    }
+}
