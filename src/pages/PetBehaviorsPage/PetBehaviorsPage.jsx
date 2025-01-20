@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import PageHeader from "../../components/PageHeader/PageHeader";
+import BehaviorsList from "../../components/BehaviorsList/BehaviorsList";
+// import "./PetBehaviorsPage.scss";
 
 export default function PetBehaviorsPage() {
-	const { id } = useParams(); // Get pet ID from URL
+	const { id } = useParams();
 	const [pet, setPet] = useState(null);
 	const [behaviors, setBehaviors] = useState([]);
 
@@ -18,28 +21,17 @@ export default function PetBehaviorsPage() {
 	// Fetch behaviors for this pet
 	useEffect(() => {
 		axios
-			.get(`http://localhost:5050/pets/${id}/behaviors`)
+			.get(`http://localhost:5050/behaviors/pet/${id}`)
 			.then((res) => setBehaviors(res.data))
 			.catch((err) => console.error("Error fetching behaviors:", err));
 	}, [id]);
 
-	if (!pet) return <p>Loading pet details...</p>;
+	if (!pet) return <p>Loading...</p>;
 
 	return (
-		<div>
-			<h2>Behaviors for {pet.name}</h2>
-			{behaviors.length > 0 ? (
-				<ul>
-					{behaviors.map((behavior) => (
-						<li key={behavior.id}>
-							<strong>{behavior.date}:</strong>{" "}
-							{behavior.description}
-						</li>
-					))}
-				</ul>
-			) : (
-				<p>No behaviors logged for this pet yet.</p>
-			)}
-		</div>
+		<div className="pet-behaviors">
+			<PageHeader title={`${pet.name}'s Behaviors`} />
+			<BehaviorsList behaviors={behaviors} hidePetColumn={true} hideHeader={true} />
+			</div>
 	);
 }
