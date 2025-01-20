@@ -12,13 +12,11 @@ export default function PetDetailsPage() {
 	const [behaviors, setBehaviors] = useState([]);
 
 	useEffect(() => {
-		// Fetch pet details
 		axios
 			.get(`http://localhost:5050/pets/${id}`)
 			.then((res) => setPet(res.data))
 			.catch((err) => console.error("Error fetching pet details:", err));
 
-		// Fetch behaviors for this pet
 		axios
 			.get(`http://localhost:5050/behaviors/pet/${id}`)
 			.then((res) => {

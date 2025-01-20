@@ -8,7 +8,6 @@ export default function HomePage() {
 	const [pets, setPets] = useState([]);
 	const [behaviors, setBehaviors] = useState([]);
 
-	// Fetch Pets
 	useEffect(() => {
 		axios
 			.get("http://localhost:5050/pets")
@@ -16,7 +15,6 @@ export default function HomePage() {
 			.catch((err) => console.error("Error fetching pets:", err));
 	}, []);
 
-	// Fetch Recent Behaviors
 	useEffect(() => {
 		axios
 			.get("http://localhost:5050/behaviors")

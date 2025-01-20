@@ -29,7 +29,7 @@ export default function EditBehaviorPage() {
 		e.preventDefault();
 		try {
 			await axios.put(`http://localhost:5050/behaviors/${id}`, behavior);
-			navigate(-1); // Go back to previous page
+			navigate(-1);
 		} catch (error) {
 			console.error("Error updating behavior:", error);
 		}

@@ -3,7 +3,6 @@ import "./BehaviorForm.scss";
 export default function BehaviorForm({ behavior, handleChange, handleSubmit, pets, selectedPet, setSelectedPet }) {
 	return (
 		<form className="behavior-form" onSubmit={handleSubmit}>
-			{/* Show pet selection dropdown only if pets exist (Add Behavior Page) */}
 			{pets && (
 				<>
 					<label htmlFor="pet">Select Pet:</label>

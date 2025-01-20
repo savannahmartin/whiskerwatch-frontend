@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import PageHeader from "../../components/PageHeader/PageHeader";
-import PetForm from "../../components/PetForm/PetForm"; // Use the new form component
+import PetForm from "../../components/PetForm/PetForm";
 import "./EditPetPage.scss";
 
 export default function EditPetPage() {
@@ -30,7 +30,7 @@ export default function EditPetPage() {
 		e.preventDefault();
 		try {
 			await axios.put(`http://localhost:5050/pets/${id}`, pet);
-			navigate(`/pets/${id}`); // Redirect back to pet details
+			navigate(`/pets/${id}`);
 		} catch (error) {
 			console.error(
 				"Error updating pet:",

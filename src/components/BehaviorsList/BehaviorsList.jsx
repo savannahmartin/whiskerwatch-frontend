@@ -4,14 +4,8 @@ import "./BehaviorsList.scss";
 
 export default function BehaviorsList({ behaviors, isLimited = false, hidePetColumn = false, hideHeader = false }) {
 	const navigate = useNavigate();
-
-	// Only include active behaviors
 	const activeBehaviors = behaviors.filter((behavior) => behavior.status === "active");
-
-	// Sort behaviors by most recent date first
 	const sortedBehaviors = [...activeBehaviors].sort((a, b) => new Date(b.date) - new Date(a.date));
-
-	// If isLimited is true, only show the 5 most recent behaviors
 	const displayedBehaviors = isLimited ? sortedBehaviors.slice(0, 5) : sortedBehaviors;
 
 	return (

@@ -3,14 +3,12 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import PageHeader from "../../components/PageHeader/PageHeader";
 import BehaviorsList from "../../components/BehaviorsList/BehaviorsList";
-// import "./PetBehaviorsPage.scss";
 
 export default function PetBehaviorsPage() {
 	const { id } = useParams();
 	const [pet, setPet] = useState(null);
 	const [behaviors, setBehaviors] = useState([]);
 
-	// Fetch pet details
 	useEffect(() => {
 		axios
 			.get(`http://localhost:5050/pets/${id}`)
@@ -18,7 +16,6 @@ export default function PetBehaviorsPage() {
 			.catch((err) => console.error("Error fetching pet details:", err));
 	}, [id]);
 
-	// Fetch behaviors for this pet
 	useEffect(() => {
 		axios
 			.get(`http://localhost:5050/behaviors/pet/${id}`)

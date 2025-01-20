@@ -5,13 +5,12 @@ import "./PetInfoCard.scss";
 export default function PetInfoCard({ pet }) {
 	const navigate = useNavigate();
 
-	// Handle archiving the pet
     const handleArchive = async () => {
         if (window.confirm(`Are you sure you want to archive ${pet.name}?`)) {
             try {
                 await axios.put(`http://localhost:5050/pets/${pet.id}/archive`);
                 alert(`${pet.name} and its behaviors have been archived.`);
-                navigate("/pets"); // Redirect after archiving
+                navigate("/pets");
             } catch (error) {
                 console.error("Error archiving pet:", error);
             }
@@ -30,7 +29,6 @@ export default function PetInfoCard({ pet }) {
 				<strong>Age:</strong> {pet.age || "Unknown"} years old
 			</p>
 
-			{/* Show "Notes" only if they exist */}
 			{pet.notes && (
 				<div className="pet-info-card__notes">
 					<strong>Additional Information:</strong>

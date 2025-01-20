@@ -12,7 +12,6 @@ export default function AddBehaviorPage() {
 	const navigate = useNavigate();
 	const location = useLocation();
 
-	// Extract petId from query params (if it exists)
 	useEffect(() => {
 		const queryParams = new URLSearchParams(location.search);
 		const petIdFromUrl = queryParams.get("petId");
@@ -28,7 +27,6 @@ export default function AddBehaviorPage() {
 			.catch((err) => console.error("Error fetching pets:", err));
 	}, [location.search]);
 
-	// Handle form submission
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (!selectedPet) {
@@ -55,7 +53,7 @@ export default function AddBehaviorPage() {
 				behavior={behavior}
 				handleChange={(e) => setBehavior({ ...behavior, [e.target.name]: e.target.value })}
 				handleSubmit={handleSubmit}
-				pets={pets} // Pass pet list for dropdown
+				pets={pets}
 				selectedPet={selectedPet}
 				setSelectedPet={setSelectedPet}
 			/>
