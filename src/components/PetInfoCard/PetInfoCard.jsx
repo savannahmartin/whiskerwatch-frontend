@@ -1,17 +1,49 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./PetInfoCard.scss";
 
 export default function PetInfoCard({ pet }) {
+	const navigate = useNavigate();
+
+	// Handle archiving the pet
+    const handleArchive = async () => {
+        if (window.confirm(`Are you sure you want to archive ${pet.name}?`)) {
+            try {
+                await axios.put(`http://localhost:5050/pets/${pet.id}/archive`);
+                alert(`${pet.name} and its behaviors have been archived.`);
+                navigate("/pets"); // Redirect after archiving
+            } catch (error) {
+                console.error("Error archiving pet:", error);
+            }
+        }
+    };    
+
 	return (
 		<div className="pet-info-card">
-			<ul className="pet-info-card__list">
-				<li><strong>Species:</strong> {pet.species || "Unknown"}</li>
-				<li><strong>Breed:</strong> {pet.breed || "Unknown"}</li>
-				<li><strong>Age:</strong> {pet.age || "Unknown"}</li>
-			</ul>
-			<Link to={`/pets/${pet.id}/edit`} className="pet-info-card__edit">
-				<button>Edit Pet</button>
-			</Link>
+			<p>
+				<strong>Species:</strong> {pet.species || "Unknown"}
+			</p>
+			<p>
+				<strong>Breed:</strong> {pet.breed || "Unknown"}
+			</p>
+			<p>
+				<strong>Age:</strong> {pet.age || "Unknown"} years old
+			</p>
+
+			{/* Show "Notes" only if they exist */}
+			{pet.notes && (
+				<div className="pet-info-card__notes">
+					<strong>Additional Information:</strong>
+					<p>{pet.notes}</p>
+				</div>
+			)}
+
+			<div className="pet-info-card__buttons">
+				<button onClick={() => navigate(`/pets/${pet.id}/edit`)}>Edit</button>
+				<button className="pet-info-card__archive" onClick={handleArchive}>
+					Archive
+				</button>
+			</div>
 		</div>
 	);
 }

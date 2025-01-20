@@ -1,0 +1,54 @@
+@use "../../styles/colors" as *;
+
+.behaviors-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+
+    h2 {
+        font-size: 2rem;
+        color: $orchid;
+        margin-bottom: 0;
+    }
+
+    &__table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        background-color: $warm-beige;
+        border-radius: 0.5rem;
+        overflow: hidden;
+
+        thead {
+            background-color: rgba(217, 142, 4, 0.5);
+
+            th {
+                padding: 1rem;
+                font-size: 1.25rem;
+            }
+        }
+
+        tbody {
+            tr {
+                &:nth-child(even) {
+                    background-color: rgba(217, 142, 4, 0.2);
+                }
+            }
+
+            td {
+                padding: 1rem;
+                font-size: 1rem;
+                color: $charcoal;
+                word-wrap: break-word;
+                text-align: left;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        gap: 1rem;
+    }
+}

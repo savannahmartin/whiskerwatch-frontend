@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import BehaviorsList from "../../components/BehaviorsList/BehaviorsList";
+import "./BehaviorsPage.scss";
 
 export default function BehaviorsPage() {
 	const [behaviors, setBehaviors] = useState([]);
@@ -12,21 +14,8 @@ export default function BehaviorsPage() {
 	}, []);
 
 	return (
-		<div>
-			<h2>All Behaviors</h2>
-			<ul>
-				{behaviors.length > 0 ? (
-					behaviors.map((behavior) => (
-						<li key={behavior.id}>
-							<strong>{behavior.pet_name}</strong>,{" "}
-							{behavior.description},{" "}
-							{new Date(behavior.date).toLocaleDateString()}
-						</li>
-					))
-				) : (
-					<p>No behaviors logged yet.</p>
-				)}
-			</ul>
+		<div className="behaviors-page">
+			<BehaviorsList behaviors={behaviors} />
 		</div>
 	);
 }

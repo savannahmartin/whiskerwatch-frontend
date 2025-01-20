@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import PetsListDetailed from "../../components/PetsListDetailed/PetsListDetailed";
+import AddPetButton from "../../components/AddPetButton/AddPetButton";
+import PageHeader from "../../components/PageHeader/PageHeader";
 
 export default function PetDashPage() {
 	const [pets, setPets] = useState([]);
@@ -13,8 +15,10 @@ export default function PetDashPage() {
 	}, []);
 
 	return (
-		<div>
+		<div className="pet-dash">
+			<PageHeader title="Your Pets" />
 			<PetsListDetailed pets={pets} />
+			<AddPetButton />
 		</div>
 	);
 }

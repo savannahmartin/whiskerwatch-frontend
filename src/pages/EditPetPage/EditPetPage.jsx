@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import PageHeader from "../../components/PageHeader/PageHeader";
+import PetForm from "../../components/PetForm/PetForm"; // Use the new form component
+import "./EditPetPage.scss";
 
 export default function EditPetPage() {
 	const { id } = useParams();
@@ -37,36 +40,9 @@ export default function EditPetPage() {
 	};
 
 	return (
-		<div>
-			<h2>Edit {pet.name}</h2>
-			<form onSubmit={handleSubmit}>
-				<input
-					type="text"
-					name="name"
-					value={pet.name}
-					onChange={handleChange}
-					required
-				/>
-				<input
-					type="text"
-					name="species"
-					value={pet.species}
-					onChange={handleChange}
-				/>
-				<input
-					type="text"
-					name="breed"
-					value={pet.breed}
-					onChange={handleChange}
-				/>
-				<input
-					type="number"
-					name="age"
-					value={pet.age}
-					onChange={handleChange}
-				/>
-				<button type="submit">Save Changes</button>
-			</form>
+		<div className="edit-pet">
+			<PageHeader title={`Edit ${pet.name}`} />
+			<PetForm pet={pet} handleChange={handleChange} handleSubmit={handleSubmit} />
 		</div>
 	);
 }

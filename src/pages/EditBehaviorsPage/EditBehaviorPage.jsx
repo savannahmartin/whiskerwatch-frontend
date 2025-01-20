@@ -1,22 +1,29 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import PageHeader from "../../components/PageHeader/PageHeader";
+import BehaviorForm from "../../components/BehaviorForm/BehaviorForm";
+import "./EditBehaviorPage.scss";
 
 export default function EditBehaviorPage() {
 	const { id } = useParams();
 	const navigate = useNavigate();
-	const [behavior, setBehavior] = useState({ description: "", date: "" });
+	const [behavior, setBehavior] = useState({ description: "", date: "", pet_name: "" });
 
 	useEffect(() => {
 		axios
 			.get(`http://localhost:5050/behaviors/${id}`)
-			.then((res) => setBehavior(res.data))
+			.then((res) => {
+				const behaviorData = res.data;
+	
+				if (behaviorData.date) {
+					behaviorData.date = new Date(behaviorData.date).toISOString().split("T")[0];
+				}
+	
+				setBehavior(behaviorData);
+			})
 			.catch((err) => console.error("Error fetching behavior:", err));
 	}, [id]);
-
-	const handleChange = (e) => {
-		setBehavior({ ...behavior, [e.target.name]: e.target.value });
-	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -24,33 +31,21 @@ export default function EditBehaviorPage() {
 			await axios.put(`http://localhost:5050/behaviors/${id}`, behavior);
 			navigate(-1); // Go back to previous page
 		} catch (error) {
-			console.error(
-				"Error updating behavior:",
-				error.response ? error.response.data : error.message
-			);
+			console.error("Error updating behavior:", error);
 		}
 	};
 
 	return (
-		<div>
-			<h2>Edit Behavior</h2>
-			<form onSubmit={handleSubmit}>
-				<input
-					type="text"
-					name="description"
-					value={behavior.description}
-					onChange={handleChange}
-					required
-				/>
-				<input
-					type="date"
-					name="date"
-					value={behavior.date}
-					onChange={handleChange}
-					required
-				/>
-				<button type="submit">Save Changes</button>
-			</form>
+		<div className="edit-behavior">
+			<PageHeader title="Edit Behavior" />
+			<p className="edit-behavior__pet-name">
+				<strong>Pet:</strong> {behavior.pet_name || "Unknown"}
+			</p>
+			<BehaviorForm
+				behavior={behavior}
+				handleChange={(e) => setBehavior({ ...behavior, [e.target.name]: e.target.value })}
+				handleSubmit={handleSubmit}
+			/>
 		</div>
 	);
 }

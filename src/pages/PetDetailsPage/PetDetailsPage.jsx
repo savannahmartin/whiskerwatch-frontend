@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import PetInfoCard from "../../components/PetInfoCard/PetInfoCard";
 import PetBehaviors from "../../components/PetBehaviors/PetBehaviors";
+import PageHeader from "../../components/PageHeader/PageHeader";
 import "./PetDetailsPage.scss";
 
 export default function PetDetailsPage() {
@@ -33,7 +34,7 @@ export default function PetDetailsPage() {
 
 	return (
 		<div className="pet-details">
-			<h2 className="pet-details__name">{pet.name}</h2>
+			<PageHeader title={`${pet.name}'s Details`} />
 			<PetInfoCard pet={pet} />
 			<PetBehaviors petId={id} behaviors={behaviors} />
 			<Link to={`/pets/${id}/behaviors`}>
