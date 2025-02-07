@@ -12,14 +12,14 @@ export default function EditBehaviorPage() {
 
 	useEffect(() => {
 		axios
-			.get(`http://localhost:5050/behaviors/${id}`)
+			.get(`${import.meta.env.VITE_API_URL}/behaviors/${id}`)
 			.then((res) => {
 				const behaviorData = res.data;
-	
+
 				if (behaviorData.date) {
 					behaviorData.date = new Date(behaviorData.date).toISOString().split("T")[0];
 				}
-	
+
 				setBehavior(behaviorData);
 			})
 			.catch((err) => console.error("Error fetching behavior:", err));
@@ -28,10 +28,22 @@ export default function EditBehaviorPage() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			await axios.put(`http://localhost:5050/behaviors/${id}`, behavior);
-			navigate(-1); // Go back to previous page
+			await axios.put(`${import.meta.env.VITE_API_URL}/behaviors/${id}`, behavior);
+			navigate(-1);
 		} catch (error) {
 			console.error("Error updating behavior:", error);
+		}
+	};
+
+	const handleDelete = async () => {
+		const confirmDelete = window.confirm("Are you sure you want to delete this behavior?");
+		if (!confirmDelete) return;
+
+		try {
+			await axios.delete(`${import.meta.env.VITE_API_URL}/behaviors/${id}`);
+			navigate("/behaviors");
+		} catch (error) {
+			console.error("Error deleting behavior:", error);
 		}
 	};
 

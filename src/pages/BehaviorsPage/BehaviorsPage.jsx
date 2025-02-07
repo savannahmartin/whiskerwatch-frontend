@@ -8,7 +8,7 @@ export default function BehaviorsPage() {
 
 	useEffect(() => {
 		axios
-			.get("http://localhost:5050/behaviors")
+			.get("${import.meta.env.VITE_API_URL}/behaviors")
 			.then((res) => setBehaviors(res.data))
 			.catch((err) => console.error("Error fetching behaviors:", err));
 	}, []);

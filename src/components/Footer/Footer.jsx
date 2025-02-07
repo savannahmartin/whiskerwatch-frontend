@@ -10,11 +10,6 @@ export default function Footer() {
 		<footer className="footer">
 			<div className="footer__start">
 				<Link to="/" className="footer__logo-container">
-					<img
-						src={logo}
-						alt="Whisker Watch Logo"
-						className="footer__logo"
-					/>
 					<h1 className="footer__title">Whisker Watch</h1>
 				</Link>
 			</div>

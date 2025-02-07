@@ -18,7 +18,7 @@ export default function AddBehaviorPage() {
 		const petIdFromUrl = queryParams.get("petId");
 
 		axios
-			.get("http://localhost:5050/pets")
+			.get("${import.meta.env.VITE_API_URL}/pets")
 			.then((res) => {
 				setPets(res.data);
 				if (petIdFromUrl && res.data.some((pet) => pet.id === Number(petIdFromUrl))) {
@@ -28,7 +28,6 @@ export default function AddBehaviorPage() {
 			.catch((err) => console.error("Error fetching pets:", err));
 	}, [location.search]);
 
-	// Handle form submission
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (!selectedPet) {
@@ -37,7 +36,7 @@ export default function AddBehaviorPage() {
 		}
 
 		try {
-			await axios.post("http://localhost:5050/behaviors", {
+			await axios.post("${import.meta.env.VITE_API_URL}/behaviors", {
 				pet_id: selectedPet,
 				description: behavior.description,
 				date: behavior.date,
@@ -55,7 +54,7 @@ export default function AddBehaviorPage() {
 				behavior={behavior}
 				handleChange={(e) => setBehavior({ ...behavior, [e.target.name]: e.target.value })}
 				handleSubmit={handleSubmit}
-				pets={pets} // Pass pet list for dropdown
+				pets={pets}
 				selectedPet={selectedPet}
 				setSelectedPet={setSelectedPet}
 			/>

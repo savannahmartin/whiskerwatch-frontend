@@ -27,4 +27,18 @@
         height: 6rem; // Larger input field for behavior description
         resize: vertical; // Allows resizing but keeps structure
     }
+
+    &__buttons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+        justify-content: center;
+    }
+
+    &__delete {
+        background-color: #d9534f;
+        &:hover {
+            background-color: rgba(217, 83, 79, 0.8);
+        }
+    }
 }

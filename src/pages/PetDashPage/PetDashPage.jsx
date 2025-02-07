@@ -9,7 +9,7 @@ export default function PetDashPage() {
 
 	useEffect(() => {
 		axios
-			.get("http://localhost:5050/pets")
+			.get("${import.meta.env.VITE_API_URL}/pets")
 			.then((res) => setPets(res.data))
 			.catch((err) => console.error("Error fetching pets:", err));
 	}, []);

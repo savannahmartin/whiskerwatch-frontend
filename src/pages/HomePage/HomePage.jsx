@@ -5,26 +5,34 @@ import PetsList from "../../components/PetsList/PetsList";
 import RecentBehaviors from "../../components/RecentBehaviors/RecentBehaviors";
 
 export default function HomePage() {
+
 	const [pets, setPets] = useState([]);
 	const [behaviors, setBehaviors] = useState([]);
 
-	// Fetch Pets
 	useEffect(() => {
 		axios
-			.get("http://localhost:5050/pets")
-			.then((res) => setPets(res.data))
-			.catch((err) => console.error("Error fetching pets:", err));
+		.get(`${import.meta.env.VITE_API_URL}/pets`)
+		.then((res) => {
+			setPets(res.data);
+		})
+		.catch((err) => {
+			console.error("Error fetching pets:", err);
+		});
 	}, []);
 
-	// Fetch Recent Behaviors
 	useEffect(() => {
 		axios
-			.get("http://localhost:5050/behaviors")
+			.get(`${import.meta.env.VITE_API_URL}/behaviors`)
 			.then((res) => {
-				const sortedBehaviors = res.data.sort(
-					(a, b) => new Date(b.date) - new Date(a.date)
-				);
-				setBehaviors(sortedBehaviors.slice(0, 5));
+				if (Array.isArray(res.data)) {
+					const sortedBehaviors = res.data.sort(
+						(a, b) => new Date(b.date) - new Date(a.date)
+					);
+					setBehaviors(sortedBehaviors.slice(0, 5));
+				} else {
+					console.error("Expected an array but got:", res.data);
+					setBehaviors([])
+				}
 			})
 			.catch((err) => console.error("Error fetching behaviors:", err));
 	}, []);

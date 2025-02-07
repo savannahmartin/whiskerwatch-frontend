@@ -12,15 +12,13 @@ export default function PetDetailsPage() {
 	const [behaviors, setBehaviors] = useState([]);
 
 	useEffect(() => {
-		// Fetch pet details
 		axios
-			.get(`http://localhost:5050/pets/${id}`)
+			.get(`${import.meta.env.VITE_API_URL}/pets/${id}`)
 			.then((res) => setPet(res.data))
 			.catch((err) => console.error("Error fetching pet details:", err));
 
-		// Fetch behaviors for this pet
 		axios
-			.get(`http://localhost:5050/behaviors/pet/${id}`)
+			.get(`${import.meta.env.VITE_API_URL}/behaviors/pet/${id}`)
 			.then((res) => {
 				const sortedBehaviors = res.data.sort(
 					(a, b) => new Date(b.date) - new Date(a.date)
