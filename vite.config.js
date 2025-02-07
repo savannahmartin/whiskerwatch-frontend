@@ -6,8 +6,8 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        implementation: (await import('sass')).default,
-      },
+        api: "modern"
+      }
     },
   },
 });

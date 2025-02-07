@@ -21,7 +21,7 @@ export default function AddPetPage() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			await axios.post("http://localhost:5050/pets", pet);
+			await axios.post("${import.meta.env.VITE_API_URL}/pets", pet);
 			navigate("/pets");
 		} catch (error) {
 			console.error("Error adding pet:", error);

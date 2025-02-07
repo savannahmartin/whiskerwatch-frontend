@@ -17,7 +17,7 @@ export default function AddBehaviorPage() {
 		const petIdFromUrl = queryParams.get("petId");
 
 		axios
-			.get("http://localhost:5050/pets")
+			.get("${import.meta.env.VITE_API_URL}/pets")
 			.then((res) => {
 				setPets(res.data);
 				if (petIdFromUrl && res.data.some((pet) => pet.id === Number(petIdFromUrl))) {
@@ -35,7 +35,7 @@ export default function AddBehaviorPage() {
 		}
 
 		try {
-			await axios.post("http://localhost:5050/behaviors", {
+			await axios.post("${import.meta.env.VITE_API_URL}/behaviors", {
 				pet_id: selectedPet,
 				description: behavior.description,
 				date: behavior.date,

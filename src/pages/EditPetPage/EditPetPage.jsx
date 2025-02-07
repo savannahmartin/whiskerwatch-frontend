@@ -17,7 +17,7 @@ export default function EditPetPage() {
 
 	useEffect(() => {
 		axios
-			.get(`http://localhost:5050/pets/${id}`)
+			.get(`${import.meta.env.VITE_API_URL}/pets/${id}`)
 			.then((res) => setPet(res.data))
 			.catch((err) => console.error("Error fetching pet details:", err));
 	}, [id]);
@@ -29,7 +29,7 @@ export default function EditPetPage() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			await axios.put(`http://localhost:5050/pets/${id}`, pet);
+			await axios.put(`${import.meta.env.VITE_API_URL}/pets/${id}`, pet);
 			navigate(`/pets/${id}`);
 		} catch (error) {
 			console.error(

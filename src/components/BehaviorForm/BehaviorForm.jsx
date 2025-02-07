@@ -1,6 +1,6 @@
 import "./BehaviorForm.scss";
 
-export default function BehaviorForm({ behavior, handleChange, handleSubmit, pets, selectedPet, setSelectedPet }) {
+export default function BehaviorForm({ behavior, handleChange, handleSubmit, handleDelete, pets, selectedPet, setSelectedPet }) {
 	return (
 		<form className="behavior-form" onSubmit={handleSubmit}>
 			{pets && (
@@ -42,7 +42,12 @@ export default function BehaviorForm({ behavior, handleChange, handleSubmit, pet
 				required
 			/>
 
-			<button type="submit">Save</button>
+			<div className="behavior-form__buttons">
+				<button type="submit">Save</button>
+				<button type="button" className="behavior-form__delete" onClick={handleDelete}>
+					Delete
+				</button>
+			</div>
 		</form>
 	);
 }

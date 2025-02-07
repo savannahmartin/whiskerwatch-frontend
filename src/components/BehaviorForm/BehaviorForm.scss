@@ -27,4 +27,18 @@
         height: 6rem; 
         resize: vertical;
     }
+
+    &__buttons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+        justify-content: center;
+    }
+
+    &__delete {
+        background-color: #d9534f;
+        &:hover {
+            background-color: rgba(217, 83, 79, 0.8);
+        }
+    }
 }

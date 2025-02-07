@@ -11,14 +11,14 @@ export default function PetBehaviorsPage() {
 
 	useEffect(() => {
 		axios
-			.get(`http://localhost:5050/pets/${id}`)
+			.get(`${import.meta.env.VITE_API_URL}/pets/${id}`)
 			.then((res) => setPet(res.data))
 			.catch((err) => console.error("Error fetching pet details:", err));
 	}, [id]);
 
 	useEffect(() => {
 		axios
-			.get(`http://localhost:5050/behaviors/pet/${id}`)
+			.get(`${import.meta.env.VITE_API_URL}/pet/${id}`)
 			.then((res) => setBehaviors(res.data))
 			.catch((err) => console.error("Error fetching behaviors:", err));
 	}, [id]);
