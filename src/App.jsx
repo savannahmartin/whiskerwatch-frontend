@@ -11,6 +11,7 @@ import BehaviorsPage from './pages/BehaviorsPage/BehaviorsPage';
 import Footer from './components/Footer/Footer';
 import EditBehaviorPage from './pages/EditBehaviorsPage/EditBehaviorPage';
 import PetBehaviorsPage from './pages/PetBehaviorsPage/PetBehaviorsPage';
+import LoginPage from './pages/LoginPage/LoginPage';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
       <Route path="/behaviors/add" element={<AddBehaviorPage />} />
       <Route path='/behavior/:id/edit' element={<EditBehaviorPage />} />
       <Route path='/pets/:id/behaviors' element={<PetBehaviorsPage />} />
+      <Route path='/login' element={<LoginPage />} />
     </Routes>
     <Footer />
     </>
